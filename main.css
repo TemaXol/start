@@ -1,0 +1,85 @@
+#slider {
+   background: #fff;
+   position: relative;
+   height: 320px;
+   width: 680px;
+   margin: 40px auto 0;
+}
+#slider ul {
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+
+#slider li {
+   width: 700px;  /* Ширина изображения */
+   height: 200px; /* Высота изображения */
+   position: absolute;
+   top: -325px;	/* Исходное положение  (за пределами слайдера) */
+   list-style: none;
+}
+
+img.first {
+left: -325px;
+width: 300px;  
+   height: 500px;
+}
+}
+img.second {
+left: -100px;
+width: 300px;  
+   height: 500px;
+}
+}
+}
+img.sthird {
+left: 150px;
+width: 300px;  
+   height: 500px;
+}
+}
+}
+
+#slider li.firstanimation {
+   animation: cycle 15s linear infinite;
+}
+
+#slider li.secondanimation {
+   animation: cycletwo 15s linear infinite;
+}
+
+#slider li.thirdanimation {
+   animation: cyclethree 15s linear infinite;
+}
+@keyframes cycle {
+   0%  { left: 0px; } /* При запуске слайдера, первое изображение уже видимо */
+   4%  { left: 0px; } /* Стартовая позиция */
+   16% { left: 0px; opacity:1; z-index:0; } /* С 4% до 16 % (3 секунды) изображение видимо */
+   20% { left: 325px; opacity: 1; z-index: 0; } /* с 16% до 20% (1 секунды)выход изображения*/
+   21% { left: -325px; opacity: 1; z-index: -1; } /* Возвращение на исходную позицию за пределами маски */
+   92% { left: -325px; opacity: 1; z-index: 0; }
+   96% { left: -325px; opacity: 1; } /* С 96% до 100% (1 секунда) – вход */
+   100%{ left: 0px; opacity: 1; }
+}
+
+@keyframes cycletwo {
+   0%  { left: -325px; opacity: 1; } /* Исходная позиция за пределами маски */
+   16% { left: -325px; opacity: 1; }/* Начало движения с 16% */
+   20% { left: 0px; opacity: 1; }
+   24% { left: 0px; opacity: 1; }  /* С 20% до 24% (в течении 1 секунды) — вход*/
+   36% { left: 0px; opacity: 1; z-index: 0; }   /* С 24% до 36 % (3 секунды) изображение видимо */
+   40% { left: 325px; opacity: 1; z-index: 0; } /* С 36% до 40% (1 секунда)— выход */
+   41% { left: -325px; opacity: 1; z-index: -1; }   /* Возврат на исходную позицию */
+   100%{ left: -325px; opacity: 1; z-index: -1; }
+}
+
+@keyframes cyclethree {
+   0%  { left: -325px; opacity: 1; }
+   36% { left: -325px; opacity: 1; }
+   40% { left: 0px; opacity: 1; }
+   44% { left: 0px; opacity: 1; }
+   56% { left: 0px; opacity: 1; }
+   60% { left: 325px; opacity: 1; z-index: 0; }
+   61% { left: -325px; opacity: 1; z-index: -1; }
+   100%{ left: -325px; opacity: 1; z-index: -1; }
+}
